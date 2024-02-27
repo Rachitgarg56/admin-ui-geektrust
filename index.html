@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ed6c39e3e6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- container min-h-screen  -->
+    <div class="w-full flex flex-col px-10 pt-4 gap-4">
+
+        <label for="query"></label>
+        <form action="" onsubmit="preventFormDefault(event)" class="bg-gray-100 border border-solid border-gray-300 rounded flex items-center justify-between px-4 py-1">
+            <input onkeyup="handleQuery(event)" type="text" id="query" name="query" placeholder="Search by name, email or role" class="rounded bg-gray-100 w-full">
+            <i class="fa-solid fa-magnifying-glass search" onclick="handleQuery(event)"></i> 
+        </form>
+
+        <ul class="admins-data-rows flex flex-col">
+
+            <li class="admins-data-row-heading flex items-center gap-4 border-b-2 py-3">
+                <div class="checkbox grow shrink basis-1/5 px-2 flex items-center"><input onclick="checkUncheckAll(this)" type="checkbox" name="" id="" class="w-4 h-4"></div>
+                
+                <span id="name" class="grow shrink basis-1/5 font-bold">Name</span>
+                <span id="email" class="grow shrink basis-1/5 font-bold">Email</span>
+                <span id="role" class="grow shrink basis-1/5 font-bold">Role</span>
+                <span id="actions" class="grow shrink basis-1/5 font-bold">Actions</span>
+            </li>
+
+            <!-- <li class="admins-data-row flex items-center gap-4 border-b-2 py-3">
+                <div class="checkbox grow shrink basis-1/5 px-2"><input onclick="checkboxEvent(event)" type="checkbox" name="" id="" class="data-row w-4 h-4"></div>
+                <p class="name grow shrink basis-1/5">Rachit Garg</p>
+                <p class="email grow shrink basis-1/5">rachitgarg56@gmail.com</p>
+                <p class="role grow shrink basis-1/5">Admin</p>
+                <div class="actions grow shrink basis-1/5 flex items-center gap-8">
+                    <button onclick=handleEditRow(event)><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button onclick=handleDoneEditRow(event) hidden><i class="fa-solid fa-circle-check"></i></button>
+                    <button onclick=handleDeleteRow(event)><i class="fa-sharp fa-solid fa-trash text-red-500"></i></button>
+                </div>
+            </li> -->
+
+        </ul>
+
+        <div id="pagination" class="flex justify-center items-baseline relative mt-2" onclick="handlePageNavigation(event)">
+
+            <div id="delete-selected" class="absolute left-2 -top-2">
+                <button onclick="handleDeleteSelectedRows()" id="delete-selected-button" class="bg-red-500 text-white rounded-3xl px-4 py-2">Delete Selected</button>
+            </div>
+
+            <div id="pagination-buttons" class="flex items-center gap-10">
+                <button id="first-page" class="border border-solid border-black flex justify-center items-center p-2 rounded-full"><i class="fa-solid fa-backward"></i></button>
+                <button id="previous-page" class="border border-solid border-black flex justify-center items-center py-2 px-3 rounded-full"><i class="fa-solid fa-chevron-left"></i></button>
+
+                <div id="pages-buttons" class="flex gap-8">
+                    <!-- <button class="page-button border border-solid border-black flex justify-center items-center px-3 py-1 rounded-full">1</button> -->
+                </div>
+                
+                <button id="next-page" class="border border-solid border-black flex justify-center items-center py-2 px-3 rounded-full"><i class="fa-solid fa-chevron-right"></i></button>
+                <button id="last-page" class="border border-solid border-black flex justify-center items-center p-2 rounded-full"><i class="fa-solid fa-forward"></i></button>
+            </div>
+
+        </div>
+        
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
